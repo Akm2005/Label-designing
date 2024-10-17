@@ -1,5 +1,5 @@
 import React from 'react';
-import { FolderDot, Pencil, Image, QrCode, Import } from 'lucide-react';
+import { FolderDot, Pencil, Image, QrCode, Import,Shapes } from 'lucide-react';
 
 const Sidebar = ({ selectedSection, onSectionSelect }) => {
   const isActive = (section) => selectedSection === section;
@@ -13,7 +13,7 @@ const Sidebar = ({ selectedSection, onSectionSelect }) => {
             isActive('project') ? 'bg-[#6C6C6C]' : ''
           }`}
         >
-          <FolderDot size={35} className="mb-1 text-white" />
+          <FolderDot size={25} className="mb-1 text-white" />
           <span className="text-white">Project</span>
         </li>
         <li
@@ -22,7 +22,7 @@ const Sidebar = ({ selectedSection, onSectionSelect }) => {
             isActive('design') ? 'bg-[#6C6C6C]' : ''
           }`}
         >
-          <Pencil size={35} className="mb-1 text-white" />
+          <Pencil size={25} className="mb-1 text-white" />
           <span className="text-white">Design</span>
         </li>
         <li
@@ -31,17 +31,26 @@ const Sidebar = ({ selectedSection, onSectionSelect }) => {
             isActive('image') ? 'bg-[#6C6C6C]' : ''
           }`}
         >
-          <Image size={35} className="mb-1 text-white" />
+          <Image size={25} className="mb-1 text-white" />
           <span className="text-white">Images</span>
         </li>
         <li
-          onClick={() => onSectionSelect('qrcode')}
+          onClick={() => onSectionSelect('Shapes')}
           className={`flex p-4 flex-col items-center text-white cursor-pointer ${
-            isActive('qrcode') ? 'bg-[#6C6C6C]' : ''
+            isActive('Shapes') ? 'bg-[#6C6C6C]' : ''
           }`}
         >
-          <QrCode size={35} className="mb-1 text-white" />
-          <span className="text-white">QrCode</span>
+          <Shapes size={25} className="mb-1 text-white" />
+          <span className="text-white">Shapes</span>
+        </li>
+        <li
+          onClick={() => onSectionSelect('BarCode')}
+          className={`flex p-4 flex-col items-center text-white cursor-pointer ${
+            isActive('BarCode') ? 'bg-[#6C6C6C]' : ''
+          }`}
+        >
+          <QrCode size={25} className="mb-1 text-white" />
+          <span className="text-white">BarCode</span>
         </li>
         <li
           onClick={() => onSectionSelect('import')}
@@ -49,7 +58,7 @@ const Sidebar = ({ selectedSection, onSectionSelect }) => {
             isActive('import') ? 'bg-[#6C6C6C]' : ''
           }`}
         >
-          <Import size={35} className="mb-1 text-white" />
+          <Import size={25} className="mb-1 text-white" />
           <span className="text-white">Import</span>
         </li>
       </ul>

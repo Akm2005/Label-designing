@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Sidebar from './components/Sidebar';
-import Content from './components/Content';
+import Content from './components/content/Content';
 import RightScreen from './components/RightScreen'; // Import the new right screen
+import Main from './components/Main'
 
 const App = () => {
   const [selectedSection, setSelectedSection] = useState(null);
@@ -32,11 +33,10 @@ const App = () => {
     return () => {
       window.removeEventListener('resize', checkOrientation);
     };
-  }, []);
+  }, []); 
 
   return (
     <div className="relative">
-      {/* Show the rotate message only in portrait mode on mobile */}
       {isPortrait && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 text-white">
           <p className="text-lg">Please rotate your phone for a better experience.</p>
@@ -44,9 +44,10 @@ const App = () => {
       )}
 
       <Header />
+      <div className='absolute p-56 pl-96'><Main/></div>
       <Sidebar onSectionSelect={handleSectionSelect} selectedSection={selectedSection} />
       <Content selectedSection={selectedSection} onClose={handleClose} />
-      <RightScreen selectedSection={selectedSection} /> {/* Add the right screen here */}
+      <RightScreen selectedSection={selectedSection} />
     </div>
   );
 };
