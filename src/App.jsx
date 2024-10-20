@@ -3,7 +3,7 @@ import Header from './components/Header';
 import Sidebar from './components/Sidebar';
 import Content from './components/content/Content';
 import RightScreen from './components/RightScreen'; // Import the new right screen
-import Main from './components/Main'
+import LayoutMain from './components/LayoutMain';
 
 const App = () => {
   const [selectedSection, setSelectedSection] = useState(null);
@@ -44,7 +44,7 @@ const App = () => {
       )}
 
       <Header />
-      <div className='absolute p-56 pl-96'><Main/></div>
+      <LayoutMain/>
       <Sidebar onSectionSelect={handleSectionSelect} selectedSection={selectedSection} />
       <Content selectedSection={selectedSection} onClose={handleClose} />
       <RightScreen selectedSection={selectedSection} />
